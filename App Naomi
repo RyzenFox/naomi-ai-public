@@ -1,0 +1,178 @@
+"""
+Naomi AI — Public Demo App
+
+Este arquivo é uma versão pública, simplificada e segura do fluxo principal da Naomi.
+
+Ele NÃO contém:
+- servidor real;
+- integração real com Azure Speech;
+- integração real com VRChat;
+- integração real com Discord;
+- módulos internos da matriz heurística;
+- sistema real de memória;
+- automações locais reais;
+- Voice ID;
+- tokens, credenciais ou dados privados.
+
+Objetivo:
+Demonstrar de forma conceitual como o fluxo principal da Naomi é organizado.
+"""
+
+from dataclasses import dataclass
+from datetime import datetime
+
+
+WAKE_WORDS = [
+    "naomi",
+    "naomí",
+    "naume",
+    "naumi",
+    "nao me",
+    "não me",
+]
+
+
+@dataclass
+class NaomiMessage:
+    user: str
+    text: str
+    timestamp: str
+
+
+class NaomiMemoryDemo:
+    """
+    Memória conceitual simplificada.
+
+    Na versão real, a Naomi utiliza armazenamento local, indexação,
+    contexto e módulos próprios de memória.
+    """
+
+    def __init__(self):
+        self.messages: list[NaomiMessage] = []
+
+    def save(self, user: str, text: str) -> None:
+        self.messages.append(
+            NaomiMessage(
+                user=user,
+                text=text,
+                timestamp=datetime.now().isoformat(timespec="seconds"),
+            )
+        )
+
+    def recent_context(self, limit: int = 5) -> str:
+        recent = self.messages[-limit:]
+        return "\n".join(f"{m.user}: {m.text}" for m in recent)
+
+
+class NaomiSkillRouterDemo:
+    """
+    Roteador conceitual de habilidades.
+
+    Na versão real, a Naomi possui módulos de skills, planner,
+    executor, segurança, telemetria e integração com serviços externos.
+    """
+
+    def route(self, text: str) -> str:
+        text_lower = text.lower()
+
+        if "youtube" in text_lower:
+            return "skill_youtube_search"
+
+        if "discord" in text_lower:
+            return "skill_discord_message"
+
+        if "memória" in text_lower or "memoria" in text_lower:
+            return "skill_memory_query"
+
+        if "status" in text_lower:
+            return "skill_system_status"
+
+        return "skill_conversation"
+
+
+class NaomiSafetyDemo:
+    """
+    Camada de segurança conceitual.
+
+    Na versão real, ações sensíveis exigem confirmação
+    ou são bloqueadas dependendo do risco.
+    """
+
+    BLOCKED_TERMS = [
+        "apagar arquivos",
+        "formatar",
+        "executar powershell",
+        "desligar pc",
+        "roubar token",
+    ]
+
+    def is_allowed(self, text: str) -> bool:
+        text_lower = text.lower()
+        return not any(term in text_lower for term in self.BLOCKED_TERMS)
+
+
+class NaomiCoreDemo:
+    """
+    Núcleo público simplificado da Naomi.
+
+    Este núcleo mostra apenas o fluxo conceitual:
+    entrada -> wake word -> segurança -> roteamento -> resposta.
+    """
+
+    def __init__(self):
+        self.memory = NaomiMemoryDemo()
+        self.router = NaomiSkillRouterDemo()
+        self.safety = NaomiSafetyDemo()
+        self.operator_name = "Usuário"
+
+    def has_wake_word(self, text: str) -> bool:
+        text_lower = text.lower()
+        return any(wake in text_lower for wake in WAKE_WORDS)
+
+    def process(self, text: str) -> str:
+        if not self.has_wake_word(text):
+            return "Wake word não detectada. A Naomi permanece em espera."
+
+        self.memory.save(self.operator_name, text)
+
+        if not self.safety.is_allowed(text):
+            return "Ação bloqueada pela camada de segurança conceitual."
+
+        skill = self.router.route(text)
+
+        if skill == "skill_youtube_search":
+            return "Demo: a Naomi identificou uma intenção de busca no YouTube."
+
+        if skill == "skill_discord_message":
+            return "Demo: a Naomi identificou uma intenção relacionada ao Discord."
+
+        if skill == "skill_memory_query":
+            context = self.memory.recent_context()
+            return f"Demo: consulta de memória conceitual.\n\nContexto recente:\n{context}"
+
+        if skill == "skill_system_status":
+            return "Demo: sistema conceitual online. Módulos reais não incluídos."
+
+        return "Demo: a Naomi processou a conversa de forma conceitual."
+
+
+def main():
+    naomi = NaomiCoreDemo()
+
+    print("Naomi AI — Public Demo")
+    print("Digite um comando começando com 'Naomi'.")
+    print("Digite 'sair' para encerrar.\n")
+
+    while True:
+        user_input = input("Você: ").strip()
+
+        if user_input.lower() in {"sair", "exit", "quit"}:
+            print("Naomi: encerrando demo pública.")
+            break
+
+        response = naomi.process(user_input)
+        print(f"Naomi: {response}\n")
+
+
+if __name__ == "__main__":
+    main()
