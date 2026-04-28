@@ -1,0 +1,9 @@
+Copyright (c) 2026 RyzenFox
+
+Todos os direitos reservados.
+
+Este repositório é disponibilizado apenas para fins de portfólio, estudo e demonstração técnica.
+
+Não é permitido copiar, redistribuir, vender, sublicenciar, republicar ou reutilizar partes substanciais deste projeto sem autorização prévia e por escrito do autor.
+
+A implementação completa do Projeto Naomi é privada.
