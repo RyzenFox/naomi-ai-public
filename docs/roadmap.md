@@ -1,26 +1,30 @@
-﻿# Roadmap
+# Roadmap público
 
-## Concluído
+O roadmap público comunica direção de engenharia sem revelar funcionalidades comerciais, cronogramas internos ou mecanismos de proteção.
 
-- Estrutura modular inicial
-- Integração com voz
-- Memória local
-- Planejamento de tarefas
-- Sistema de automação supervisionada
-- Versionamento com Git
+## Consolidado
+
+- arquitetura modular com superfícies desktop, servidor e mobile;
+- entrada e saída por voz;
+- memória local e contextual;
+- percepção visual supervisionada;
+- integrações com ambientes virtuais e live;
+- perfis de desempenho e fallback de hardware;
+- testes de regressão para fluxos críticos;
+- processo de atualização com preservação de dados do usuário.
 
 ## Em evolução
 
-- Refatoração da arquitetura
-- Otimização de áudio
-- Otimização de visão computacional
-- Separação entre cliente, servidor e módulos
-- Melhor documentação técnica
+- maior cobertura automatizada;
+- observabilidade e diagnóstico mais claros;
+- acessibilidade e experiência de instalação;
+- redução de acoplamento entre integrações;
+- validação em mais perfis de hardware;
+- documentação pública de resultados, sem código proprietário.
 
-## Futuro
+## Direção futura
 
-- Versão demo segura
-- Dashboard técnico
-- Instalador simplificado
-- Sistema de plugins
-- Documentação acadêmica do projeto
+- demonstrações públicas gravadas;
+- estudos de caso de engenharia;
+- métricas agregadas e anonimizadas;
+- documentação de decisões arquiteturais não sensíveis.
