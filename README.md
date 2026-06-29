@@ -1,360 +1,130 @@
-# Naomi AI — Assistente Local Modular para VRChat/VTuber
+# Naomi AI — Portfólio Público
 
-Projeto autoral de Inteligência Artificial local desenvolvido em Python, com foco em voz, memória, visão computacional, automação supervisionada e interação em ambientes virtuais como VRChat e fluxos VTuber.
+> Vitrine técnica e documentação de alto nível. A implementação de produção da Naomi permanece privada.
 
-## Visão geral
+![Status](https://img.shields.io/badge/status-desenvolvimento%20ativo-6f42c1)
+![Publicação](https://img.shields.io/badge/publicação-sanitizada-2ea44f)
+![Licença](https://img.shields.io/badge/licença-todos%20os%20direitos%20reservados-blue)
 
-A Naomi AI é uma assistente de IA local modular criada para atuar como uma presença digital interativa em ambiente desktop, VRChat e VTuber.
+## Sobre o projeto
 
-O projeto combina:
+Naomi AI é uma assistente multimodal autoral criada para explorar engenharia de software aplicada a IA, interação por voz, memória local, percepção visual e integração controlada com experiências desktop, mobile e VTuber.
 
-- Reconhecimento e síntese de voz;
-- Memória local;
-- Automação supervisionada;
-- Visão computacional;
-- Integração com Discord;
-- Controle por voz;
-- Planejamento de tarefas;
-- Arquitetura modular inspirada em sistemas multiagentes.
+O projeto funciona como laboratório técnico e portfólio. Seu desenvolvimento prioriza modularidade, estabilidade, privacidade local, testes de regressão e limites claros entre recursos demonstráveis e componentes proprietários.
 
-A ideia principal da Naomi é ir além de um chatbot comum. Ela foi projetada para perceber contexto, responder por voz, executar ações autorizadas e manter uma memória local do usuário e das interações.
+## Estado atual — junho de 2026
 
-## Status do projeto
+Em alto nível, a Naomi já trabalha com:
 
-Projeto em desenvolvimento ativo.
+- interação desktop por voz e interface gráfica;
+- memória local e recuperação contextual;
+- percepção visual e consciência de tela supervisionadas;
+- integração com ambientes virtuais e produção de live;
+- cliente, servidor e experiência mobile coordenados;
+- perfis de desempenho com degradação segura para diferentes hardwares;
+- atualização do cliente com preservação de dados locais;
+- controles de autorização, privacidade e isolamento de contas;
+- testes automatizados para fluxos críticos.
 
-Atualmente, a Naomi possui módulos funcionais para:
+Esta lista descreve capacidades, não a implementação. Protocolos privados, regras internas, prompts, credenciais, modelos, rotas de produção e código comercial não são publicados.
 
-- Interface desktop;
-- TTS/STT com Azure Speech;
-- Memória local com SQLite;
-- Integração com YOLO/OpenCV;
-- Discord Bridge;
-- Planejamento e execução de tarefas;
-- Sistema de skills;
-- Biometria/identidade de voz experimental;
-- Controle de interrupção de fala;
-- Organização modular com Git/GitHub.
-
-## Objetivo do projeto
-
-O objetivo da Naomi é estudar e desenvolver uma arquitetura prática de IA local aplicada, unindo conceitos de:
-
-- Desenvolvimento de software;
-- Inteligência Artificial;
-- Automação;
-- Interação humano-computador;
-- Segurança de execução;
-- Sistemas modulares;
-- Assistentes virtuais personalizados;
-- Integração com ambientes virtuais.
-
-Este projeto também serve como portfólio técnico para demonstrar conhecimentos em Python, IA aplicada, automação, visão computacional, backend local e arquitetura de sistemas.
-
-## Principais funcionalidades
-
-### Voz e conversação
-
-- Reconhecimento de fala em português.
-- Resposta com voz sintetizada.
-- Wake words para ativação.
-- Interrupção controlada da fala.
-- Controle de fluxo para evitar que a IA responda a áudio indevido.
-
-### Memória local
-
-- Registro local de interações.
-- Memória separada por contexto.
-- Módulos de reflexão e feedback.
-- Armazenamento local usando SQLite e arquivos internos.
-
-### Visão computacional
-
-- Integração com YOLO/OpenCV.
-- Rastreamento visual experimental.
-- Uso voltado para interação em ambientes virtuais.
-
-### Automação supervisionada
-
-- Abertura de sites.
-- Busca no Google/YouTube.
-- Integração com Discord.
-- Envio supervisionado de mensagens.
-- Bloqueio de ações sensíveis ou perigosas.
-
-### Arquitetura modular
-
-A Naomi é dividida em módulos independentes para facilitar manutenção, testes e evolução.
-
-## Arquitetura geral
-
-Fluxo simplificado de funcionamento:
+## Arquitetura conceitual
 
 ```mermaid
-flowchart TD
-    User["Usuário"] --> Audio["Entrada de Voz"]
-    Audio --> STT["Reconhecimento de Fala (STT)"]
-    STT --> Core["Núcleo Naomi"]
-    Core --> Memory["Memória Local"]
-    Core --> Planner["Planejamento de Tarefas"]
-    Core --> Safety["Camada de Segurança"]
-    Core --> Skills["Skills"]
-    Core --> Response["Resposta"]
-    Response --> TTS["Síntese de Voz (TTS)"]
-    TTS --> User
+flowchart LR
+    U["Usuário"] --> I["Superfícies de interação"]
+    I --> O["Orquestração"]
+    O --> V["Voz"]
+    O --> M["Memória local"]
+    O --> P["Percepção"]
+    O --> A["Ações supervisionadas"]
+    V --> S["Camada de segurança"]
+    M --> S
+    P --> S
+    A --> S
+    S --> R["Resposta controlada"]
+    R --> U
 ```
 
-## Stack utilizada
+O diagrama é deliberadamente abstrato. Ele comunica responsabilidades arquiteturais sem revelar nomes internos, topologia de produção ou mecanismos de proteção.
 
-| Área | Tecnologias |
+## Competências demonstradas
+
+| Área | Evidência de engenharia |
 | --- | --- |
-| Linguagem principal | Python |
-| Interface | CustomTkinter |
-| Voz | Azure Cognitive Services Speech |
-| IA local / LLM | Ollama |
-| Backend / servidor | FastAPI |
-| Memória local | SQLite |
-| Visão computacional | YOLO, OpenCV, MSS |
-| Áudio | sounddevice, VAD |
-| Automação | PyAutoGUI, PyDirectInput |
-| Integrações | Discord, OSC, VRChat/Warudo |
-| Versionamento | Git, GitHub |
-| IA / ML | PyTorch, Ultralytics |
+| Python | Organização modular, concorrência, filas e testes |
+| Backend | APIs, streaming, isolamento de sessões e observabilidade |
+| Interface | Desktop, QML e fluxos orientados a eventos |
+| IA aplicada | Voz, percepção, memória contextual e modelos locais |
+| Mobile | Integração Android/Unity e comunicação autenticada |
+| Confiabilidade | Fallbacks de hardware, diagnósticos e testes de regressão |
+| Segurança | Segregação de dados, autorização e publicação sanitizada |
+| DevOps | Git, revisão por Pull Request e empacotamento Windows |
 
-## Estrutura principal do projeto
+## O que este repositório contém
+
+- documentação pública de arquitetura;
+- mapa conceitual de capacidades;
+- roadmap público;
+- política de segurança e de publicação;
+- uma demo sintética, independente e sem integrações reais;
+- testes da demo pública.
+
+## O que permanece privado
+
+- código de produção do cliente e do servidor;
+- autenticação, licenciamento e mecanismos antifraude;
+- prompts, persona, regras comportamentais e memória real;
+- bancos, áudios, modelos, telemetria e dados de usuários;
+- endpoints, domínios, chaves e arquivos de configuração;
+- scripts de build, atualização e distribuição comercial;
+- integrações completas com plataformas externas.
+
+Consulte [Segurança e publicação](docs/seguranca.md) para a política completa desta vitrine.
+
+## Demo pública
+
+A demo não usa rede, modelos, microfone, banco de dados ou credenciais. Ela existe somente para demonstrar organização básica de código.
+
+```powershell
+python .\src\app_naomi_public_demo.py
+python -m unittest discover -s tests -v
+```
+
+Ela não é uma versão reduzida do núcleo real e não deve ser interpretada como documentação do comportamento de produção.
+
+## Estrutura pública
 
 ```text
-naomi-ai/
-│
-├── app_naomi.py
-├── requirements.txt
-├── .env.example
-├── README.md
-│
-├── naomi_core/
-│   ├── actions/
-│   ├── cognition/
-│   ├── core/
-│   └── memory/
-│
-├── naomi_athena_alias/
-├── naomi_athena_semantic/
-├── naomi_metis_feedback/
-├── naomi_metis_reflection/
-│
-├── naomi_task_planner/
-├── naomi_plan_executor/
-├── naomi_execution_reporter/
-│
-├── naomi_skill_library/
-├── naomi_skill_router/
-├── naomi_skill_memory/
-├── naomi_skill_optimizer/
-│
-├── naomi_barge_in_guard/
-├── naomi_voice_input_gate/
-├── naomi_audio_input_mute/
-│
-├── naomi_speaker_identity/
-├── naomi_speaker_identity_pro/
-│
-├── naomi_discord_bridge/
-├── servidor/
-├── scripts/
-└── testes/
+naomi-ai-public/
+├── docs/
+│   ├── arquitetura.md
+│   ├── modulos.md
+│   ├── roadmap.md
+│   └── seguranca.md
+├── src/
+│   └── app_naomi_public_demo.py
+├── tests/
+│   └── test_public_demo.py
+├── LICENSE
+├── SECURITY.md
+└── README.md
 ```
 
-## Explicação dos módulos principais
+## Documentação
 
-**`app_naomi.py`**
-Arquivo principal da aplicação desktop. Ele concentra a interface, inicialização dos módulos, controle de áudio, fluxo de voz, integração com o servidor e chamadas principais da Naomi.
-
-**`naomi_core/`**
-Base estrutural da Naomi. Contém componentes de configuração, estado interno, ações, cognição e memória.
-
-**`naomi_task_planner/`**
-Responsável por analisar comandos e transformar intenções em planos ou etapas executáveis.
-
-**`naomi_plan_executor/`**
-Executa planos supervisionados, controlando ações que podem ou não exigir confirmação.
-
-**`naomi_skill_library/`**
-Biblioteca de habilidades disponíveis para a Naomi. Ajuda a organizar capacidades reutilizáveis.
-
-**`naomi_skill_router/`**
-Roteia comandos para a habilidade mais adequada, evitando que tudo fique centralizado em um único arquivo.
-
-**`naomi_skill_memory/`**
-Guarda estatísticas e telemetria de uso das habilidades.
-
-**`naomi_skill_optimizer/`**
-Sugere melhorias com base em falhas, uso e desempenho das skills.
-
-**`naomi_athena_*`**
-Camadas relacionadas à memória, aliases, semântica e recuperação de contexto.
-
-**`naomi_metis_*`**
-Módulos de reflexão, feedback e aprendizado local a partir das interações.
-
-**`naomi_barge_in_guard/`**
-Controla interrupções de fala, evitando que qualquer ruído ou voz externa corte a Naomi indevidamente.
-
-**`naomi_voice_input_gate/`**
-Filtra entradas de voz externas, especialmente em cenários com áudio vindo de ambientes virtuais.
-
-**`naomi_speaker_identity/` e `naomi_speaker_identity_pro/`**
-Módulos experimentais para identificação/validação de voz.
-
-**`naomi_discord_bridge/`**
-Integração com Discord para envio e monitoramento de mensagens de forma controlada.
-
-**`servidor/`**
-Componentes do servidor local e experimentos de backend.
-
-**`scripts/`**
-Scripts auxiliares para inicialização e execução do projeto.
-
-**`testes/`**
-Testes e validações locais.
-
-## Segurança e privacidade
-
-Este repositório foi preparado para evitar o versionamento de arquivos sensíveis.
-
-Arquivos ignorados pelo Git incluem:
-
-- `.env`
-- Bancos locais `.db`
-- Memórias locais
-- Áudios pessoais
-- Modelos pesados
-- Backups antigos
-- Ambientes virtuais
-- Caches
-- Tokens e credenciais
-
-O arquivo `.env.example` é fornecido apenas como modelo de configuração.
-
-## Configuração local
-
-### 1. Clonar o repositório
-
-```bash
-git clone https://github.com/RyzenFox/naomi-ai-public.git
-cd naomi-ai-public
-```
-
-### 2. Criar ambiente virtual
-
-```bash
-python -m venv .venv
-```
-
-No Windows:
-
-```bash
-.venv\Scripts\activate
-```
-
-### 3. Instalar dependências
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Configurar variáveis de ambiente
-
-Crie um arquivo `.env` com base no `.env.example`.
-
-Exemplo:
-
-```env
-AZURE_KEY=sua_chave_aqui
-AZURE_REGION=brazilsouth
-URL_SERVIDOR=http://127.0.0.1:8000
-DISCORD_BOT_TOKEN=seu_token_aqui
-LOGIN_USER=seu_usuario
-LOGIN_SENHA=sua_senha
-```
-
-### 5. Executar
-
-```bash
-python app_naomi.py
-```
-
-## Exemplo de variáveis no `.env.example`
-
-```env
-AZURE_KEY=coloque_sua_chave_aqui
-AZURE_REGION=brazilsouth
-URL_SERVIDOR=http://127.0.0.1:8000
-API_SECRET_KEY=coloque_uma_chave_local_aqui
-LOGIN_USER=coloque_seu_usuario_aqui
-LOGIN_SENHA=coloque_sua_senha_aqui
-DISCORD_BOT_TOKEN=coloque_o_token_aqui
-NAOMI_WHATSAPP_NUMBER=5511999999999
-```
-
-## Roadmap
-
-### Concluído / em funcionamento
-
-- Interface desktop com CustomTkinter.
-- Integração com Azure Speech.
-- Memória local.
-- Discord Bridge.
-- Organização modular.
-- Git/GitHub.
-- Planner, executor e sistema de skills.
-- Filtros de segurança para automações.
-
-### Em evolução
-
-- Melhor separação entre cliente e servidor.
-- Refinamento da arquitetura multiagente.
-- Melhor documentação interna.
-- Testes automatizados.
-- Refatoração dos módulos antigos.
-- Interface mais profissional.
-- Sistema de plugins.
-- Dashboard de telemetria.
-- Melhor experiência de instalação.
-
-### Futuro
-
-- Versão pública demonstrativa.
-- Instalador simplificado.
-- Integração com mais plataformas.
-- Assistente com perfis de personalidade.
-- Memória semântica mais robusta.
-- Controle avançado de permissões.
-- Modo portfólio/demo sem dados privados.
-
-## Principais aprendizados do projeto
-
-Durante o desenvolvimento da Naomi foram explorados conceitos como:
-
-- Arquitetura modular em Python;
-- Integração entre IA e aplicações desktop;
-- Automação supervisionada;
-- Controle de fluxo por voz;
-- Segurança em ações automatizadas;
-- Versionamento com Git;
-- Organização de projeto para portfólio;
-- Separação de dados sensíveis;
-- Uso de IA em ambientes virtuais;
-- Testes locais e depuração contínua.
+- [Arquitetura pública](docs/arquitetura.md)
+- [Capacidades conceituais](docs/modulos.md)
+- [Roadmap público](docs/roadmap.md)
+- [Segurança e publicação](docs/seguranca.md)
+- [Histórico público](docs/changelog-publico.md)
 
 ## Autor
 
-**Gabriel Fernandes Couto**
-Estudante de Ciência da Computação
-Foco em Python, Inteligência Artificial, automação e segurança cibernética.
+Projeto autoral de **RyzenFox**.
 
-- GitHub: https://github.com/RyzenFox
-- LinkedIn: https://www.linkedin.com/in/gabriel-couto-50199a3a2
+- [Perfil no GitHub](https://github.com/RyzenFox)
 
-## Observação
+## Licença
 
-Este projeto está em desenvolvimento e representa um laboratório autoral de IA aplicada. Algumas partes ainda estão em fase experimental, sendo continuamente refatoradas e melhoradas.
+Todos os direitos reservados. O conteúdo é disponibilizado para portfólio e demonstração técnica. Consulte [LICENSE](LICENSE).

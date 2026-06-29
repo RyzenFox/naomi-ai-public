@@ -1,31 +1,31 @@
-﻿# Módulos conceituais
+# Capacidades conceituais
 
-## Interface
+Esta página descreve responsabilidades, não módulos ou arquivos da implementação privada.
 
-Responsável pela interação visual com o usuário.
+## Interação
+
+Recebe eventos de interface, voz e mobile, apresenta estado e mantém o usuário no controle de ações relevantes.
 
 ## Voz
 
-Responsável por entrada e saída de áudio.
+Converte fala em eventos de conversa e respostas em áudio. O sistema inclui interrupção controlada e caminhos alternativos quando a aceleração não está disponível.
 
 ## Memória
 
-Responsável por registrar contexto local e histórico útil.
+Mantém contexto autorizado e separado por usuário. Bancos, esquemas, algoritmos de recuperação e dados reais não são publicados.
 
-## Planner
+## Percepção
 
-Responsável por transformar intenções em planos.
+Processa sinais visuais de forma supervisionada e com limites de recursos. Modelos e regras de detecção permanecem privados.
 
-## Skills
+## Orquestração
 
-Responsável por organizar capacidades reutilizáveis.
+Coordena prioridades, filas, cancelamento e ciclo de vida dos recursos para evitar concorrência descontrolada.
 
 ## Segurança
 
-Responsável por bloquear ações sensíveis e exigir confirmação.
+Aplica autorização, isolamento de contas, minimização de dados e confirmação para operações sensíveis. A lógica concreta não é documentada publicamente.
 
 ## Integrações
 
-Responsável por comunicação com ferramentas externas.
-
-A implementação real dos módulos não está presente nesta versão pública.
+Conecta experiências desktop, mobile, live e ambientes virtuais por adaptadores isolados. Credenciais, endpoints e contratos de produção não fazem parte desta vitrine.
