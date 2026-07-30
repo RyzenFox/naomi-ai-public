@@ -27,6 +27,9 @@
 > [!IMPORTANT]
 > Este README descreve o funcionamento real da Naomi em nível arquitetural, com base no Git privado do projeto. Código de produção, endpoints, prompts, credenciais, regras internas, modelos e mecanismos comerciais permanecem privados.
 
+> [!TIP]
+> **Novidades de julho/2026:** novo [diagrama do ecossistema público](#site-oficial-e-ecossistema-público) (site + mobile + VRChat + lives), [linha do tempo da evolução recente](#evolução-recente) e snapshot de escala atualizado. O site oficial agora tem repositório público próprio — [**naomi-site**](https://github.com/RyzenFox/naomi-site) — e a demonstração ao vivo está em [**naomi-ia.com**](https://naomi-ia.com).
+
 ## Visão geral
 
 A Naomi AI é uma assistente autoral construída para existir em várias superfícies ao mesmo tempo: desktop, voz, mobile, Discord, VRChat, Warudo e produção de live. Ela não é apenas uma janela de chat. O sistema coordena áudio, memória, modelos locais, percepção visual, filas de trabalho, ações supervisionadas e estado de avatar.
