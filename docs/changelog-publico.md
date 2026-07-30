@@ -1,5 +1,15 @@
 # Histórico público
 
+## 2026-07-30 — Ecossistema público e evolução de julho
+
+- snapshot de escala atualizado (432 arquivos Python rastreados, 161 de teste, 10 superfícies QML);
+- nova seção "Site oficial e ecossistema público", com diagrama ligando site, mobile, VRChat e lives;
+- nova linha do tempo "Evolução recente" com os marcos de junho e julho de 2026;
+- o site oficial ganhou repositório público próprio: [naomi-site](https://github.com/RyzenFox/naomi-site);
+- roadmap público revisado: identidade unificada, instalador transacional e site com chat ao vivo passaram a consolidados.
+
+Nenhum código de produção, segredo, prompt, banco, modelo ou mecanismo comercial foi incluído nesta atualização.
+
 ## 2026-06-29 — README arquitetural
 
 - README reconstruído a partir dos fluxos reais do Git privado;

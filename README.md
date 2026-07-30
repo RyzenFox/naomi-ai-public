@@ -19,6 +19,8 @@
   <a href="#memória-e-contexto">Memória</a> •
   <a href="#mobile-e-ponte-com-o-pc">Mobile</a> •
   <a href="#live-e-presença-virtual">Live</a> •
+  <a href="#site-oficial-e-ecossistema-público">Site</a> •
+  <a href="#evolução-recente">Evolução</a> •
   <a href="#segurança-e-privacidade">Segurança</a>
 </p>
 
@@ -41,16 +43,17 @@ O princípio central é **local-first**:
 ### Snapshot técnico do Git privado
 
 <details>
-<summary><strong>Ver escala do projeto em 29/06/2026</strong></summary>
+<summary><strong>Ver escala do projeto em 30/07/2026</strong></summary>
 
 | Indicador | Quantidade rastreada |
 | --- | ---: |
-| Arquivos Python/Python GUI | 203 |
-| Scripts PowerShell | 18 |
-| Launchers e scripts Batch | 20 |
-| Superfícies QML | 2 |
-| Arquivos Kotlin | 10 |
-| Arquivos de teste dedicados | 38 |
+| Arquivos Python (cliente, servidor, auth, instalador) | 432 |
+| Arquivos de teste dedicados | 161 |
+| Scripts PowerShell | 27 |
+| Launchers e scripts Batch | 14 |
+| Superfícies QML | 10 |
+| Arquivos Kotlin (Android) | 13 |
+| Documentos Markdown | 70 |
 
 Os números representam um snapshot do commit privado usado para esta documentação e mudam conforme o projeto evolui.
 
@@ -327,6 +330,55 @@ flowchart LR
 ```
 
 O host controla ritmo, prioridade, repetição, eventos sociais e momentos de silêncio. Assim, cada mensagem não vira automaticamente uma fala e a Naomi não monopoliza a transmissão.
+
+## Site oficial e ecossistema público
+
+A Naomi tem um site oficial no ar — **[naomi-ia.com](https://naomi-ia.com)** — e ele não é uma vitrine estática: o chat da home conversa com a Naomi real. As mensagens dos visitantes chegam ao PC do criador por um túnel seguro, passam pelas mesmas políticas de fila e cota, e voltam com a resposta da própria IA.
+
+```mermaid
+flowchart LR
+    VISITANTE["🌍 Visitantes"] --> SITE["Site oficial<br/>naomi-ia.com (Vercel)"]
+
+    subgraph PC["🏠 PC do criador"]
+        AUTHS["Auth Server<br/>contas, apoiadores, downloads"]
+        CORE["Naomi<br/>voz, memória, LLM local"]
+    end
+
+    SITE -- "túnel seguro" --> AUTHS
+    SITE -- "túnel seguro" --> CORE
+
+    MOBILE["📱 Naomi Mobile"] --> AUTHS
+    MOBILE --> CORE
+    VRC["🥽 NPC no VRChat"] -- "polling de feed" --> SITE
+    LIVE["📺 Lives Twitch/TikTok"] --> CORE
+```
+
+O código do site é um projeto separado e público, com README próprio e diagramas:
+
+| Repositório | Conteúdo |
+| --- | --- |
+| [naomi-site](https://github.com/RyzenFox/naomi-site) | Site oficial: Next.js 16, avatar 3D, chat ao vivo, estúdio de mídia, área de apoiadores |
+| **naomi-ai-public** (este) | Arquitetura da assistente em si, documentada a partir do Git privado |
+
+## Evolução recente
+
+Marcos de junho e julho de 2026, em ordem aproximada:
+
+```mermaid
+timeline
+    title Marcos recentes do projeto
+    Junho 2026 : Instalador transacional próprio, com rollback
+               : Motor de interação ao vivo para lives (TikTok e Twitch)
+               : Apoiadores Patreon destravam recursos de visão
+    Julho 2026 : Identidade unificada no site — login Google e PIN rápido
+               : Estúdio de mídia no site — imagens e vídeos com cotas e custos limitados
+               : Naomi Central — launcher do servidor e administração em um app só
+               : Navegação guiada por voz no mobile, com bússola real e câmera de condução
+               : Apoio emocional multilíngue reforçado, com recursos de crise garantidos por código
+               : Motor cognitivo multimodal de live — percepção, humor e reações visuais
+```
+
+Cada marco corresponde a commits reais no Git privado; os detalhes de implementação permanecem fora do repositório público.
 
 ## Segurança e privacidade
 

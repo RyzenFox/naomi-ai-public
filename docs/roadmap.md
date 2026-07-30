@@ -11,7 +11,11 @@ O roadmap público comunica direção de engenharia sem revelar funcionalidades 
 - integrações com ambientes virtuais e live;
 - perfis de desempenho e fallback de hardware;
 - testes de regressão para fluxos críticos;
-- processo de atualização com preservação de dados do usuário.
+- processo de atualização com preservação de dados do usuário;
+- instalador transacional com reversão automática;
+- identidade unificada para o ecossistema web (login social e PIN rápido);
+- site oficial com chat ao vivo supervisionado e área de apoiadores;
+- estúdio de mídia web com cotas, custos limitados e mídia privada.
 
 ## Em evolução
 
