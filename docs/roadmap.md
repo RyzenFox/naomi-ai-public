@@ -1,34 +1,30 @@
-# Roadmap público
+# Estado e direção do projeto
 
-O roadmap público comunica direção de engenharia sem revelar funcionalidades comerciais, cronogramas internos ou mecanismos de proteção.
+[Início](../README.md) · [Arquitetura](arquitetura.md) · [Histórico público](changelog-publico.md)
 
-## Consolidado
+Referência editorial: **17/09/2026**. Este roadmap comunica a direção de engenharia. Não é um cronograma de lançamento nem uma garantia de recursos em todos os pacotes distribuídos.
 
-- arquitetura modular com superfícies desktop, servidor e mobile;
-- entrada e saída por voz;
-- memória local e contextual;
-- percepção visual supervisionada;
-- integrações com ambientes virtuais e live;
-- perfis de desempenho e fallback de hardware;
-- testes de regressão para fluxos críticos;
-- processo de atualização com preservação de dados do usuário;
-- instalador transacional com reversão automática;
-- identidade unificada para o ecossistema web (login social e PIN rápido);
-- site oficial com chat ao vivo supervisionado e área de apoiadores;
-- estúdio de mídia web com cotas, custos limitados e mídia privada.
+## Base de desenvolvimento documentada
 
-## Em evolução
+| Componente | Estrutura existente |
+| --- | --- |
+| Servidor | Orquestração em Python/FastAPI, modelos configuráveis, fila de inferência e comunicação HTTP/SSE. |
+| Cliente desktop | Interface Windows, runtime de voz, memória local, percepção e integrações autorizadas. |
+| Mobile 3D | Cliente Unity/Android, presença 3D, conversa, áudio e contexto local. |
+| Maps | Integração de GPS, mapa interativo em WebView, busca, rotas e coordenação de navegação. |
+| Ecossistema web | Site oficial e apresentação pública em repositório próprio. |
 
-- maior cobertura automatizada;
-- observabilidade e diagnóstico mais claros;
-- acessibilidade e experiência de instalação;
-- redução de acoplamento entre integrações;
-- validação em mais perfis de hardware;
-- documentação pública de resultados, sem código proprietário.
+## Focos de evolução
 
-## Direção futura
+- **Servidor:** qualidade de resposta, controle de concorrência, cancelamento e diagnóstico.
+- **Cliente:** latência de áudio, convivência com jogos e estabilidade das integrações.
+- **Mobile 3D:** uso de memória e bateria, retorno do segundo plano e continuidade entre versões.
+- **Maps:** legibilidade, estabilidade de GPS, ciclo de vida do mapa e coerência entre dados disponíveis e interface.
+- **Qualidade:** ampliar validação em hardware real e distinguir resultados de testes, pacotes de teste e versões distribuídas.
+- **Documentação:** publicar demonstrações revisadas e estudos de caso sem dados pessoais ou implementação proprietária.
 
-- demonstrações públicas gravadas;
-- estudos de caso de engenharia;
-- métricas agregadas e anonimizadas;
-- documentação de decisões arquiteturais não sensíveis.
+## O que esta página não anuncia
+
+Não são anunciados aqui uma versão iOS, disponibilidade em lojas, navegação integralmente offline, cobertura universal de trânsito, metas de desempenho garantidas ou abertura do código de produção.
+
+A demo pública e seus testes são independentes do produto. Consulte os guias de [servidor](servidor.md), [cliente](cliente.md), [mobile](mobile-3d.md) e [Maps](naomi-maps.md) para entender as dependências de cada parte.
