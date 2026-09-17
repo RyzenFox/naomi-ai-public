@@ -1,31 +1,32 @@
-# Capacidades conceituais
+# Capacidades e responsabilidades
 
-Esta página descreve responsabilidades, não módulos ou arquivos da implementação privada.
+[Início](../README.md) · [Arquitetura](arquitetura.md)
 
-## Interação
+Esta matriz mostra quem participa de cada capacidade. Não é uma lista de recursos garantidos em toda versão, nem uma relação de arquivos do projeto privado.
 
-Recebe eventos de interface, voz e mobile, apresenta estado e mantém o usuário no controle de ações relevantes.
+| Capacidade | Cliente desktop | Servidor | Mobile 3D | Maps |
+| --- | --- | --- | --- | --- |
+| Conversa | Entrada e apresentação no PC. | Contexto, modelos e resposta. | Entrada e apresentação no celular. | Pode coexistir com a conversa; navegação tem fluxo próprio. |
+| Voz | Captura, reconhecimento e síntese conforme configuração. | Atende os fluxos de áudio que utilizam serviços remotos. | Integra áudio do aparelho e respostas. | Coordena instruções de navegação. |
+| Memória | Contexto local e recuperação semântica. | Usa o recorte de contexto permitido. | Contexto local próprio e continuidade compatível. | Mantém estado de rota, distinto da memória de conversa. |
+| Presença visual | Interface e integrações de avatar. | Pode fornecer resultados usados na apresentação. | Cenas, avatar e interface Unity. | Renderização cartográfica e controles de navegação. |
+| Percepção | Recursos visuais supervisionados. | Processamento conforme o serviço disponível. | Capacidades dependem da versão e do dispositivo. | GPS e dados de navegação têm tratamento específico. |
+| Ferramentas | Ações locais autorizadas e integrações. | Coordenação de serviços compartilhados. | Recursos e permissões Android. | Busca, rotas e informações cartográficas. |
+| Desempenho | Perfis de hardware e controle de recursos. | Fila e capacidade de inferência. | Qualidade gráfica, áudio e ciclo de vida. | Custo de mapa, atualização e recursos gráficos. |
 
-## Voz
+## Camadas compartilhadas
 
-Converte fala em eventos de conversa e respostas em áudio. O sistema inclui interrupção controlada e caminhos alternativos quando a aceleração não está disponível.
+**Identidade e autorização** delimitam a conta, a sessão e os recursos permitidos. Estar conectado em dois dispositivos não dá acesso irrestrito aos dados locais de ambos.
 
-## Memória
+**Eventos, tarefas e filas** coordenam os trabalhos assíncronos. Interface, voz, rede e integrações não precisam executar no mesmo ritmo.
 
-Mantém contexto autorizado e separado por usuário. Bancos, esquemas, algoritmos de recuperação e dados reais não são publicados.
+**Observabilidade e testes** ajudam a distinguir falhas de rede, áudio, renderização e processamento. Diagnósticos de produção e dados de usuários não fazem parte do portfólio.
 
-## Percepção
+## Guias por componente
 
-Processa sinais visuais de forma supervisionada e com limites de recursos. Modelos e regras de detecção permanecem privados.
+- [Servidor: processamento e serviços](servidor.md)
+- [Cliente: experiência desktop](cliente.md)
+- [Mobile 3D: experiência Android](mobile-3d.md)
+- [Maps: localização e navegação](naomi-maps.md)
 
-## Orquestração
-
-Coordena prioridades, filas, cancelamento e ciclo de vida dos recursos para evitar concorrência descontrolada.
-
-## Segurança
-
-Aplica autorização, isolamento de contas, minimização de dados e confirmação para operações sensíveis. A lógica concreta não é documentada publicamente.
-
-## Integrações
-
-Conecta experiências desktop, mobile, live e ambientes virtuais por adaptadores isolados. Credenciais, endpoints e contratos de produção não fazem parte desta vitrine.
+Os detalhes de implementação seguem a [política de publicação](seguranca.md).

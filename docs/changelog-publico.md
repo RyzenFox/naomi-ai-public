@@ -1,5 +1,17 @@
 # Histórico público
 
+## 2026-09-17 — Ecossistema explicado por componente
+
+- README reorganizado como entrada rápida para servidor, cliente desktop, Mobile 3D e Maps.
+- Quatro guias dedicados, com responsabilidades, fluxos conceituais, tecnologias e limites de funcionamento.
+- Arquitetura ampliada com estrutura lógica e separação entre modelo, persona, memória, pesquisa, ferramentas e apresentação.
+- Contexto local do mobile distinguido da memória semântica desktop e da ponte opcional com o PC.
+- Maps apresentado como parte do Mobile 3D, com distinção entre GPS, renderização, navegação e serviços cartográficos.
+- Matriz de capacidades e roadmap revisados; documentação de desenvolvimento separada de garantias sobre versões distribuídas.
+- Escopo dos testes públicos explicitado: validam a demo sintética, não o produto completo.
+
+Esta atualização publica apenas documentação. Não inclui código de produção, dados pessoais, trajetos reais, credenciais, prompts, modelos ou pacotes privados.
+
 ## 2026-07-30 — Ecossistema público e evolução de julho
 
 - snapshot de escala atualizado (432 arquivos Python rastreados, 161 de teste, 10 superfícies QML);
